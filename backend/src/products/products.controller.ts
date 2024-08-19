@@ -34,6 +34,7 @@ export class ProductsController {
     @Post()
     create(@Body() body:IProduct){
         this.products.push(body);
+        //this.productsService.addItem(body);
         return this.products;
     }
 }

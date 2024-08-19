@@ -10,6 +10,9 @@ import { Observable } from 'rxjs';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+  
+  addVisible = false;
+
   term = ""
 
   title = 'frontend';
@@ -20,6 +23,12 @@ export class AppComponent {
   products: IProduct[];
 
   constructor(private http: HttpClient){}
+
+  getAll(): void {
+    this.http.get(this.configUrl).subscribe({next:(res:any) => {
+      this.products = res;
+    }});
+  }
        
     ngOnInit(){
            

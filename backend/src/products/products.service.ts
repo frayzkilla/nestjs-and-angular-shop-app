@@ -10,6 +10,10 @@ export class ProductsService {
   constructor(private readonly httpService: HttpService) {}
 
   findAll(): Observable<AxiosResponse<IProduct[]>> {
-    return this.httpService.get('https://fakestoreapi.com/products?limit=18');
+    return this.httpService.get('https://fakestoreapi.com/products');
+  }
+
+  addItem(product: IProduct): void {
+    this.httpService.post('https://fakestoreapi.com/products', product);
   }
 }
