@@ -19,7 +19,7 @@ export class AddItemComponent {
   ){}
 
   changeVisibility(): void{
-    this.appcom.addVisible = false;
+    this.appcom.isAddVisible = false;
   }
 
   form = new FormGroup({

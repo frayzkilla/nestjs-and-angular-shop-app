@@ -1,0 +1,37 @@
+
+<div
+class="relative m-4 p-4 w-2/5 min-w-[40%] max-w-[40%] rounded-lg bg-white shadow-sm"
+>
+<div class="flex shrink-0 items-center pb-4 text-xl font-medium text-slate-800">
+  Log In
+</div>
+<div class="relative border-t border-slate-200 py-4 leading-normal text-slate-600 font-light flex flex-col">
+
+        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" [formGroup]="profileForm">
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+              Username
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username" formControlName="username">
+          </div>
+          <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+              Password
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" formControlName="password">
+            
+          </div>
+          <div class="flex items-center justify-between">
+            <button  (click)="onSubmit()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+              Log In
+            </button>
+          </div>
+          <p *ngIf="isNotCorrect" class="text-red-500 text-xs italic">Incorrect username/password.</p>
+        </form>
+</div>
+<div class="flex shrink-0 flex-wrap items-center pt-4 justify-end">
+  
+  <button (click)="changeVisibility()" class="rounded-md bg-pink-600 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-red-700 focus:shadow-none active:bg-red-700 hover:bg-red-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2" type="button">
+    Close
+  </button>
+</div>

@@ -11,7 +11,30 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   
-  addVisible = false;
+  isAddVisible = false;
+  isInfoVisible = false;
+  isBuyVisible = false;
+  isLoggingVisible = false;
+
+  isAuthorized = false;
+  username = null;
+  role = null;
+  temp_role = window.localStorage.getItem('role');
+  
+
+  logOut(): void{
+    this.isAuthorized = false;
+    this.username = null;
+    this.role = null;
+    window.localStorage.removeItem('role');
+    window.localStorage.removeItem('username');
+  }
+
+  changeInfoVisibility(): void{
+    console.log(this.isInfoVisible);
+    this.isInfoVisible = false;
+    console.log(this.isInfoVisible);
+  }
 
   term = ""
 
@@ -31,7 +54,13 @@ export class AppComponent {
   }
        
     ngOnInit(){
-           
+      if (this.temp_role==null) {
+        console.log(100);
+      } else {
+        this.role = window.localStorage.getItem('role');
+        this.username = window.localStorage.getItem('username');
+        this.isAuthorized = true;
+      }  
         this.http.get(this.configUrl).subscribe({next:(res:any) => {
           this.products = res;
         }});

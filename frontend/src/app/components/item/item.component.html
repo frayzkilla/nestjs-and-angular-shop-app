@@ -1,5 +1,5 @@
-<div class="max-h-72 max-w-72 bg-white rounded p-3 overflow-hidden flex flex-col justify-items-center hover:bg-slate-200">
-    <img src="{{ product.image }}" alt="{{ product.title }}" class="max-w-36 max-h-28 justify-self-center">
-    <h2>{{ product.title }}</h2>
-    <p class="p-1 font-bold">{{ product.price | currency }}</p>
+<div class="cursor-pointer max-h-72 max-w-72 bg-white rounded p-3 overflow-hidden flex flex-col hover:bg-slate-200 ml-auto mr-auto">
+    <img src="{{ product.image }}" alt="{{ product.title }}" class="max-w-32 max-h-28 min-h-28 ml-auto mr-auto">
+    <h2 class="ml-auto mr-auto">{{ product.title | limitTitle}}</h2>
+    <p class="p-1 font-bold  ml-auto mr-auto">{{ product.price | currency }}</p>
 </div>

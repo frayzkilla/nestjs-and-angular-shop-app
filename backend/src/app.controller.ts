@@ -5,5 +5,6 @@ import axios from 'axios';
 
 @Controller()
 export class AppController {
+  [x: string]: any;
   
 }
